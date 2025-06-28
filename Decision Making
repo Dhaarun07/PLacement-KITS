@@ -1,0 +1,37 @@
+import java.util.io;
+import java.util.*;
+
+public class ScholarshipEligibility {
+    public static String checkEligibility(int age, int year, int income, int arrears, float score, float attendance) {
+        if (age < 18 || age >= 21 || year < 2021) {
+            return "Not Eligible";
+        }
+
+        if (arrears > 2) {
+            if (score >= 80 && attendance >= 90) {
+                if (income <= 200000) return "Eligible";
+                else if (income < 250000) return "Partially Eligible";
+            }
+        } else {
+            if (score >= 60 && attendance >= 80) {
+                if (income <= 200000) return "Eligible";
+                else if (income < 250000) return "Partially Eligible";
+            }
+        }
+
+        return "Not Eligible";
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int age = sc.nextInt();
+        int year = sc.nextInt();
+        int income = sc.nextInt();
+        int arrears = sc.nextInt();
+        float score = sc.nextFloat();
+        float attendance = sc.nextFloat();
+
+        System.out.println(checkEligibility(age, year, income, arrears, score, attendance));
+    }
+}
