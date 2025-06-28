@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();  
+        int bill;
+        
+        if (n <= 200) {
+            bill = n * 50;
+        } else if (n <= 400) {
+            bill = n * 65 + 10000;
+        } else if (n <= 600) {
+            bill = n * 80 + 20000;
+        } else {
+            bill = n * 125 + 42500;
+        }
+        int output=bill/100;
+        
+        System.out.println("Rs." + output);
+       
+    }
+}
